@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<robot name="robot">
+
+  <link name="base_link"/>
+
+  <link name="link1">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <joint name="j1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708" effort="30" velocity="1"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <link name="link2">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <joint name="j2" type="revolute">
+    <parent link="link1"/>
+    <child link="link2"/>
+    <origin xyz="0 0 0.04" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="1.5708" effort="30" velocity="1"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <link name="link3">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <joint name="j3" type="revolute">
+    <parent link="link2"/>
+    <child link="link3"/>
+    <origin xyz="0 0 0.105" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="1.5708" effort="15" velocity="1"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <link name="link4">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <joint name="j4" type="revolute">
+    <parent link="link3"/>
+    <child link="link4"/>
+    <origin xyz="0 0 0.096" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="1.5708" effort="15" velocity="1"/>
+    <dynamics damping="0.1" friction="0.1"/>
+  </joint>
+
+  <link name="link5">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <joint name="j5" type="fixed">
+    <parent link="link4"/>
+    <child link="link5"/>
+    <origin xyz="0 0 0.065" rpy="0 0 0"/>
+  </joint>
+
+  <link name="link6">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <joint name="j6" type="fixed">
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz="0 0 0.11" rpy="0 0 0"/>
+  </joint>
+
+</robot>
