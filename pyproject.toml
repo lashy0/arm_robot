@@ -1,0 +1,30 @@
+[project]
+name = "final-robot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy<2",
+    "pyserial>=3.5",
+    "roboticstoolbox-python>=1.1.1",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.13.0",
+    "pytest-mock>=3.14.0",
+    "pytest>=8.3.4",
+    "ruff>=0.8.2",
+]
+
+[tool.ruff]
+line-length = 100
+fix = true
+
+[tool.ruff.lint]
+extend-select = ["E501", "N", "R", "I"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tools/tests"]
