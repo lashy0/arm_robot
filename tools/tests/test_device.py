@@ -19,7 +19,7 @@ def test_connect_success(mocker):
     
     device.connect()
     
-    assert device.is_connected() == True
+    assert device.is_connected()
     mock_serial.assert_called_once_with("COM1", 9600, timeout=1.0)
 
 def test_disconnect_success(mocker):
@@ -36,7 +36,7 @@ def test_disconnect_success(mocker):
     device.connect()
     device.disconnect()
     
-    assert device.is_connected() == False
+    assert not device.is_connected()
     mock_serial.return_value.close.assert_called_once()
 
 def test_connect_failure(mocker):
@@ -103,7 +103,7 @@ def test_reconnect_success(mocker):
     device.connect()
     device.reconnect(retries=2, delay=1.0)
     
-    assert device.is_connected() == True
+    assert device.is_connected()
 
 def test_reconnect_failure(mocker):
     """Test the failure to reconnect to the serial device.
