@@ -17,9 +17,9 @@ uv sync
 
 Чтобы запустить пример движения на роботе выполнить следующую команду:
 
-'''bash
+```bash
 uv run -m tools.script.move --file data/trajectory.npy --port <port esp32c3> --baudrate 115200
-'''
+```
 
 ## Про описание робота в формате URDF
 
