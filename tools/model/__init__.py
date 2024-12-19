@@ -1,5 +1,5 @@
-from .robot import ArmRobot
+from .robot import ArmRobot, PLOT_LIMITS
 
 __all__ = [
-    "ArmRobot",
+    "ArmRobot", "PLOT_LIMITS"
 ]

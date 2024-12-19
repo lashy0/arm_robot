@@ -7,6 +7,8 @@ _path_file = Path(__file__).resolve().parent
 
 PATH_URDF = _path_file / "urdf/robot.urdf"
 
+PLOT_LIMITS = [-0.5, 0.5, -0.5, 0.5, 0, 0.5]
+
 class ArmRobot(rtb.Robot):
     def __init__(self):
         if not PATH_URDF.exists():
