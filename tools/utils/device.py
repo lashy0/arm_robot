@@ -1,6 +1,7 @@
-import time
-import serial
 import logging
+import time
+
+import serial
 
 
 class SerialDevice:

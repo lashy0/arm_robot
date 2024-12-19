@@ -1,6 +1,8 @@
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
 from serial import SerialException
+
 from tools.utils import SerialDevice
 
 
