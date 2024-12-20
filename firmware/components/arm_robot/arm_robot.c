@@ -73,27 +73,27 @@ esp_err_t arm_robot_home_state(arm_robot_t *robot)
     esp_err_t ret;
     
     
-    ret = servo_pca9685_set_angle(&robot->base_servo, SERVO_BASE_START_ANGLE);
+    ret = servo_pca9685_set_angle(&robot->base_servo, SERVO_BASE_START_ANGLE, 50);
     if (ret != ESP_OK) {
         return ESP_FAIL;
     }
 
-    ret = servo_pca9685_set_angle(&robot->shoulder_servo, SERVO_SHOULDER_START_ANGLE);
+    ret = servo_pca9685_set_angle(&robot->shoulder_servo, SERVO_SHOULDER_START_ANGLE, 50);
     if (ret != ESP_OK) {
         return ESP_FAIL;
     }
 
-    ret = servo_pca9685_set_angle(&robot->elbow_servo, SERVO_ELBOW_START_ANGLE);
+    ret = servo_pca9685_set_angle(&robot->elbow_servo, SERVO_ELBOW_START_ANGLE, 50);
     if (ret != ESP_OK) {
         return ESP_FAIL;
     }
 
-    ret = servo_pca9685_set_angle(&robot->wrist_servo, SERVO_WRIST_START_ANGLE);
+    ret = servo_pca9685_set_angle(&robot->wrist_servo, SERVO_WRIST_START_ANGLE, 50);
     if (ret != ESP_OK) {
         return ESP_FAIL;
     }
 
-    ret = servo_pca9685_set_angle(&robot->wrist_rot_servo, SERVO_WRIST_ROT_START_ANGLE);
+    ret = servo_pca9685_set_angle(&robot->wrist_rot_servo, SERVO_WRIST_ROT_START_ANGLE, 50);
     if (ret != ESP_OK) {
         return ESP_FAIL;
     }

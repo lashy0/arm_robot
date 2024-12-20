@@ -53,10 +53,10 @@ void process_servo_commands(void *arg) {
         // Ждем, пока появится команда в очереди
         if (xQueueReceive(servo_queue, &command, portMAX_DELAY) == pdPASS) {
             // Выставляем углы
-            servo_pca9685_set_angle(&robot.base_servo, command.angles[0]);
-            servo_pca9685_set_angle(&robot.shoulder_servo, command.angles[1]);
-            servo_pca9685_set_angle(&robot.elbow_servo, command.angles[2]);
-            servo_pca9685_set_angle(&robot.wrist_servo, command.angles[3]);
+            servo_pca9685_set_angle(&robot.base_servo, command.angles[0], PWM_FREQUENCY);
+            servo_pca9685_set_angle(&robot.shoulder_servo, command.angles[1], PWM_FREQUENCY);
+            servo_pca9685_set_angle(&robot.elbow_servo, command.angles[2], PWM_FREQUENCY);
+            servo_pca9685_set_angle(&robot.wrist_servo, command.angles[3], PWM_FREQUENCY);
 
             ESP_LOGI(TAG, "command start");
             vTaskDelay(pdMS_TO_TICKS(25));
@@ -117,6 +117,10 @@ static void usb_serial_task(void *arg) {
 
 void app_main(void)
 {
+    // Set level log
+    esp_log_level_set("servo_pca9685", ESP_LOG_WARN);
+    esp_log_level_set("arm_robot", ESP_LOG_WARN);
+    
     esp_err_t ret;
 
     // Initialize I2C
